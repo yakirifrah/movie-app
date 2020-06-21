@@ -4,14 +4,20 @@ import {updateObject} from '../utility';
 const INITIAL_STATE = {
   data: {},
   error: null,
-  dataExits: false,
+  loading: false,
+};
+
+const requestPending=(state, action) => {
+  return updateObject(state,{
+    loading:true,
+  })
 };
 
 const requestSuccess = (state, action) => {
   return updateObject(state, {
     error: null,
+    loading:false,
     data: action.data,
-    dataExits: true,
   });
 };
 
@@ -21,8 +27,10 @@ const requestFailed = (state, action) => {
   });
 };
 
-const UserReducer = (state = INITIAL_STATE, action) => {
+const MoviesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case actionTypes.REQUEST_PENDING:
+      return requestPending(state,action);
     case actionTypes.REQUEST_SUCCESS:
       return requestSuccess(state, action);
     case actionTypes.REQUEST_FAILED:
@@ -32,4 +40,4 @@ const UserReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default UserReducer;
+export default MoviesReducer;

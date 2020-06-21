@@ -890,6 +890,14 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@react-native-community/art@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/art/-/art-1.2.0.tgz#386d95393f6042d9006f9d4bc6063fb898794460"
+  dependencies:
+    art "^0.10.3"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+
 "@react-native-community/cli-debugger-ui@^4.9.0":
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.9.0.tgz#4177764ba69243c97aa26829d59d9501acb2bd71"
@@ -1030,6 +1038,12 @@
     query-string "^6.12.1"
     react-is "^16.13.0"
     use-subscription "^1.4.0"
+
+"@react-navigation/material-top-tabs@^5.2.10":
+  version "5.2.10"
+  resolved "https://registry.yarnpkg.com/@react-navigation/material-top-tabs/-/material-top-tabs-5.2.10.tgz#6144217267253fb889d55ba91344832223322e63"
+  dependencies:
+    color "^3.1.2"
 
 "@react-navigation/native@^5.5.1":
   version "5.5.1"
@@ -1422,6 +1436,10 @@ array-unique@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
 
+art@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/art/-/art-0.10.3.tgz#b01d84a968ccce6208df55a733838c96caeeaea2"
+
 asap@~2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
@@ -1466,6 +1484,12 @@ aws4@^1.8.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.0.tgz#a17b3a8ea811060e74d47d306122400ad4497ae2"
 
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  dependencies:
+    follow-redirects "1.5.10"
+
 babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
@@ -1489,6 +1513,12 @@ babel-jest@^26.0.1:
     chalk "^4.0.0"
     graceful-fs "^4.2.4"
     slash "^3.0.0"
+
+babel-plugin-dotenv@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dotenv/-/babel-plugin-dotenv-0.1.1.tgz#9c8faea67a7c034fe7e94099187ab2e7573400bc"
+  dependencies:
+    dotenv "^2.0.0"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -2044,6 +2074,12 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   dependencies:
     ms "2.0.0"
 
+debug@=3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  dependencies:
+    ms "2.0.0"
+
 debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
@@ -2150,6 +2186,10 @@ domexception@^2.0.1:
   resolved "https://registry.yarnpkg.com/domexception/-/domexception-2.0.1.tgz#fb44aefba793e1574b0af6aed2801d057529f304"
   dependencies:
     webidl-conversions "^5.0.0"
+
+dotenv@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -2698,6 +2738,12 @@ flat-cache@^2.0.1:
 flatted@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.2.tgz#4575b21e2bcee7434aa9be662f4b7b5f9c2b5138"
+
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  dependencies:
+    debug "=3.1.0"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -4816,7 +4862,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -4870,6 +4916,12 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
 
+react-native-dotenv@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-0.2.0.tgz#311551cb6a35a3dcfede648bded55c0e3ece579d"
+  dependencies:
+    babel-plugin-dotenv "0.1.1"
+
 react-native-elements@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-2.0.2.tgz#2819d556cea481cad29fa79c6a8ccb47ef6f456e"
@@ -4896,6 +4948,12 @@ react-native-gesture-handler@^1.6.1:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-indicator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-indicator/-/react-native-indicator-1.2.0.tgz#3c7fb342bbe91597199eb851d02b75b3ea1e1845"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"

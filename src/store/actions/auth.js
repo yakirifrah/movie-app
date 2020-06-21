@@ -2,30 +2,30 @@ import * as actionTypes from './actionTypes';
 import {AccessToken, LoginManager} from 'react-native-fbsdk';
 import {GraphRequestManager, GraphRequest} from 'react-native-fbsdk';
 
-export const authStart = () => ({
+ const authStart = () => ({
   type: actionTypes.AUTH_START,
 });
 
-export const authSuccess = (token) => ({
+ const authSuccess = (token) => ({
   type: actionTypes.AUTH_SUCCESS,
   token: token,
 });
 
-export const saveData = (data) => ({
+ const saveData = (data) => ({
   type: actionTypes.SAVE_DATA,
   data: data,
 });
 
-export const authFail = (error) => ({
+ const authFail = (error) => ({
   type: actionTypes.AUTH_FAIL,
   error: error,
 });
 
-export const authCancel = () => ({
+ const authCancel = () => ({
   type: actionTypes.AUTH_CANCEL,
 });
 
-export const logout = () => ({
+ const logout = () => ({
   type: actionTypes.AUTH_LOGOUT,
 });
 

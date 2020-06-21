@@ -11,7 +11,6 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import logger from 'redux-logger';
-// import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 import {NavigationContainer} from '@react-navigation/native';
 
 import rootReducer from './src/store/reducers';

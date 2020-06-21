@@ -43,16 +43,25 @@ const saveData = (state, action) => {
   });
 };
 
+const authCancel = (state,action) => {
+  return updateObject(state,{
+    loading:false
+  })
+}
+
+
 const AuthReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.AUTH_START:
       return authStart(state, action);
-    case actionTypes.SAVE_DATA:
-      return saveData(state, action);
     case actionTypes.AUTH_SUCCESS:
       return authSuccess(state, action);
+    case actionTypes.SAVE_DATA:
+      return saveData(state, action);
     case actionTypes.AUTH_FAIL:
       return authFail(state, action);
+    case actionTypes.AUTH_CANCEL:
+      return authCancel(state,action);
     case actionTypes.AUTH_LOGOUT:
       return authLogout(state, action);
     default:
