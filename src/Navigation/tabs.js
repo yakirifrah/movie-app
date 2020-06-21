@@ -1,39 +1,54 @@
 import React from 'react';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-const Tab = createMaterialTopTabNavigator();
 import {MovieScreen, FavoriteMoviesScreen} from '../screens/index';
+import {Image} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {FavoriteMovieIconWithBadge} from '../lib/utils';
+
+const Tab = createBottomTabNavigator();
+
 const TabStack = () => {
   return (
     <Tab.Navigator
-      initialRouteName="popular movies"
+      initialRouteName="movieTabs"
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+          if (route.name === 'Popular movie') {
+            iconName = focused
+              ? require('../assets/cinema-red.png')
+              : require('../assets/cinema.png');
+            return (
+              <Image
+                source={iconName}
+                style={{width: 20, height: 20}}
+                resizeMode="contain"
+              />
+            );
+          } else if (route.name === 'my favorite') {
+            iconName = focused
+              ? require('../assets/video-camera-red.png')
+              : require('../assets/video-camera.png');
+          }
+          return (
+            <FavoriteMovieIconWithBadge
+              name={iconName}
+              size={size}
+              color={color}
+            />
+          );
+        },
+      })}
       tabBarOptions={{
-        activeTintColor: '#FFFFFF',
-        inactiveTintColor: '#F8F8F8',
-        style: {
-          backgroundColor: '#2b61dd',
-        },
-        labelStyle: {
-          textAlign: 'center',
-        },
-        indicatorStyle: {
-          borderBottomColor: '#87B56A',
-          borderBottomWidth: 2,
-        },
-      }}>
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+      }}
+    >
       <Tab.Screen
-        name="MovieList"
+        name="Popular movie"
         component={MovieScreen}
-        options={{
-          tabBarLabel: 'popular movies',
-        }}
+        options={{title: 'Popular movie'}}
       />
-      <Tab.Screen
-        name="FavoriteMovie"
-        component={FavoriteMoviesScreen}
-        options={{
-          tabBarLabel: 'my favorite movies',
-        }}
-      />
+      <Tab.Screen name="my favorite" component={FavoriteMoviesScreen} />
     </Tab.Navigator>
   );
 };

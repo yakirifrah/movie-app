@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "813945913099",
+    "firebase_url": "https://rnfirebase-4db42.firebaseio.com",
+    "project_id": "rnfirebase-4db42",
+    "storage_bucket": "rnfirebase-4db42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813945913099:android:dc692c625dee566a4e6c0e",
+        "android_client_info": {
+          "package_name": "com.movieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813945913099-r06eu6dthjq4s2i54teu8iktnvu5eq8l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.movieapp",
+            "certificate_hash": "7a82840854286f844ade628b763687fa0112e455"
+          }
+        },
+        {
+          "client_id": "813945913099-00t6qa00hriieoevgdp2vmnk2836eul5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKAEib6zy6tMjWTcJDfb0_GwBsBeKz3CI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813945913099-00t6qa00hriieoevgdp2vmnk2836eul5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813945913099:android:7bf2e381506f023c4e6c0e",
+        "android_client_info": {
+          "package_name": "com.myproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813945913099-00t6qa00hriieoevgdp2vmnk2836eul5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKAEib6zy6tMjWTcJDfb0_GwBsBeKz3CI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813945913099-00t6qa00hriieoevgdp2vmnk2836eul5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

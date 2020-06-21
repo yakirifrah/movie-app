@@ -43,12 +43,11 @@ const saveData = (state, action) => {
   });
 };
 
-const authCancel = (state,action) => {
-  return updateObject(state,{
-    loading:false
-  })
-}
-
+const authCancel = (state, action) => {
+  return updateObject(state, {
+    loading: false,
+  });
+};
 
 const AuthReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -61,7 +60,7 @@ const AuthReducer = (state = INITIAL_STATE, action) => {
     case actionTypes.AUTH_FAIL:
       return authFail(state, action);
     case actionTypes.AUTH_CANCEL:
-      return authCancel(state,action);
+      return authCancel(state, action);
     case actionTypes.AUTH_LOGOUT:
       return authLogout(state, action);
     default:

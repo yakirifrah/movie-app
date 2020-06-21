@@ -11,7 +11,7 @@ const MovieList = ({navigation}) => {
   const {data, loading} = useSelector((state) => state.movies);
   useEffect(() => {
     dispatch(getPopularMovies());
-  }, []);
+  }, [dispatch]);
   const keyExtractor = (item, index) => index.toString();
 
   const items = () =>

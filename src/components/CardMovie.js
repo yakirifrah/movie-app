@@ -8,7 +8,12 @@ const Card = () => {
     return (
         <>
         <TouchableOpacity style={card}>
-            <Image style={cardImg} source={{uri:'https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg'}}/>
+        <Image
+          style={cardImg}
+          source={{
+            uri:
+              'https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg',
+          }}
             <Text style={cardText}>aaa</Text>
         </TouchableOpacity>
     </>

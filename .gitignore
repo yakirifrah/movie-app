@@ -60,3 +60,4 @@ buck-out/
 
 
 /.env
+/.prettierrc.js
