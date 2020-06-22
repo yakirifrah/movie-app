@@ -2,8 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
 
 const INITIAL_STATE = {
-  data: {},
-  favoriteMovies: {},
+  data: [],
+  favoriteMovies: [],
   error: null,
   loading: false,
   toggleFavorite: false,
