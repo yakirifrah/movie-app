@@ -1,8 +1,9 @@
 import React from 'react';
-import {MovieScreen, FavoriteMoviesScreen} from '../screens/index';
+import {MovieListScreen} from '../screens/index';
 import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {FavoriteMovieIconWithBadge} from '../lib/utils';
+import favoriteRoute from './favoriteStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,12 +44,8 @@ const TabStack = () => {
         inactiveTintColor: 'gray',
       }}
     >
-      <Tab.Screen
-        name="Popular movie"
-        component={MovieScreen}
-        options={{title: 'Popular movie'}}
-      />
-      <Tab.Screen name="my favorite" component={FavoriteMoviesScreen} />
+      <Tab.Screen name="Popular movie" component={MovieListScreen} />
+      <Tab.Screen name="my favorite" component={favoriteRoute} />
     </Tab.Navigator>
   );
 };

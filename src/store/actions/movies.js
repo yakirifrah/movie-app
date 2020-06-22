@@ -15,46 +15,44 @@ const requestSuccess = (result) => ({
   data: result,
 });
 
-const addMovie = (newFavoriteMovies, newData) => ({
-  type: actionTypes.ADD_MOVIE,
+const toggleFavorite = (newFavoriteMovies, newData) => ({
+  type: actionTypes.TOGGLE_FAVORITE,
   favoriteMovie: newFavoriteMovies,
   data: newData,
 });
 
 export const getPopularMovies = () => {
-  console.log('getPopularMovies');
   return (dispatch) => {
     dispatch(requestPending());
     try {
       Api.getData('/movie/popular')
         .then((response) => {
-          console.log(response);
           dispatch(requestSuccess(response.data.results));
         })
         .catch((error) => {
           dispatch(requestFailed, JSON.stringify(error));
         });
     } catch (e) {
-      console.log(JSON.stringify(e));
+      dispatch(requestFailed, JSON.stringify(e));
     }
   };
 };
 
-export const addMovieToFavorite = (id) => {
+export const toggleFavoriteMovie = (id, movie) => {
   return (dispatch, getState) => {
     const {data, favoriteMovies} = getState().movies;
-    let addFav = true;
+    let isFavorite = movie.hasOwnProperty('favorite') ? !movie.favorite : true;
     let newFavoriteMovies = [];
     const newData = data.map((obj) =>
-      obj.id === id ? {...obj, favorite: addFav} : obj,
+      obj.id === id ? {...obj, favorite: isFavorite} : obj,
     );
+
     const favItem = data.find((item) => item.id === id);
     if (isEmpty(favoriteMovies)) {
       newFavoriteMovies.push(favItem);
     } else {
       newFavoriteMovies = [...favoriteMovies, favItem];
     }
-    console.log('favItem data: ', favItem);
-    dispatch(addMovie(newFavoriteMovies, newData));
+    dispatch(toggleFavorite(newFavoriteMovies, newData));
   };
 };

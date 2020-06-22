@@ -11,6 +11,4 @@ export const REQUEST_PENDING = 'REQUEST_PENDING';
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 export const REQUEST_FAILED = 'REQUEST_FAILED';
 
-//favoriteMovies reducer
-export const ADD_MOVIE = 'ADD_MOVIE';
-export const DEL_MOVIE = 'DEL_MOVIE';
+export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE';

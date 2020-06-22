@@ -12,18 +12,23 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import logger from 'redux-logger';
 import {NavigationContainer} from '@react-navigation/native';
-
+import Router from './src/navigation';
 import rootReducer from './src/store/reducers';
 
 const middleware = [thunk, logger];
+let store;
+if (__DEV__) {
+  console.log('dev mode...');
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(...middleware)),
+  );
+} else {
+  store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+}
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(...middleware)),
-);
-
-import Router from './src/Navigation';
 const App: () => React$Node = () => {
   return (
     <>

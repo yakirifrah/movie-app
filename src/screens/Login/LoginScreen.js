@@ -27,7 +27,8 @@ const LoginScreen = ({navigation}) => {
           size={20}
           backgroundColor="#3b5998"
           onPress={() => navigation.navigate('TabStack')}
-          solid>
+          solid
+        >
           <Text style={{color: '#F5FBFF'}}>List Movies</Text>
         </Icon.Button>
         <FacebookLogin />
@@ -41,7 +42,7 @@ const LoginScreen = ({navigation}) => {
       {!loading && (
         <>
           <View style={styles.main}>
-            <Title msg={msg} />
+            <Title msg={msg} color={'black'} size={20} />
             <ImageUser />
           </View>
           <View style={styles.footer}>{renderButton()}</View>

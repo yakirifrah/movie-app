@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {getPopularMovies} from '../../store/actions/movies';
 import {ListItem} from 'react-native-elements';
@@ -14,15 +14,7 @@ const MovieList = ({navigation}) => {
   }, [dispatch]);
   const keyExtractor = (item, index) => index.toString();
 
-  const items = () =>
-    useMemo(() => {
-      return [...data.title];
-    }, [data.title]);
-
-  const {container} = styles;
-
   const navigateToDetailMovie = (item) => {
-    console.log('item: ', item);
     navigation.navigate('MovieDetail', {
       item,
     });

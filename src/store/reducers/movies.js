@@ -6,8 +6,7 @@ const INITIAL_STATE = {
   favoriteMovies: {},
   error: null,
   loading: false,
-  addMovie: false,
-  delMovie: false,
+  toggleFavorite: false,
 };
 
 const requestPending = (state, action) => {
@@ -30,19 +29,11 @@ const requestFailed = (state, action) => {
   });
 };
 
-const addMovieToFavorite = (state, action) => {
+const toggleFavorite = (state, action) => {
   return updateObject(state, {
     favoriteMovies: action.favoriteMovie,
     data: action.data,
-    addMovie: true,
-    delMovie: false,
-  });
-};
-
-const delMovieToFavorite = (state, action) => {
-  return updateObject(state, {
-    addMovie: false,
-    delMovie: true,
+    toggleFavorite: !state.toggleFavorite,
   });
 };
 
@@ -54,10 +45,8 @@ const MoviesReducer = (state = INITIAL_STATE, action) => {
       return requestSuccess(state, action);
     case actionTypes.REQUEST_FAILED:
       return requestFailed(state, action);
-    case actionTypes.ADD_MOVIE:
-      return addMovieToFavorite(state, action);
-    case actionTypes.DEL_MOVIE:
-      return delMovieToFavorite(state, action);
+    case actionTypes.TOGGLE_FAVORITE:
+      return toggleFavorite(state, action);
     default:
       return state;
   }
