@@ -1,12 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {getPopularMovies} from '../../store/actions/movies';
 import {ListItem} from 'react-native-elements';
 import {FlatList, StyleSheet} from 'react-native';
 import Loader from '../../components/Loader';
-
+import SearchBar from '../../components/SearchBar';
 const MovieList = ({navigation}) => {
+  const [search, setSearch] = useState('');
   const dispatch = useDispatch();
 
   const {data, loading} = useSelector((state) => state.movies);
@@ -22,7 +23,9 @@ const MovieList = ({navigation}) => {
       item,
     });
   };
-
+  const onchangeValue = (search) => {
+    setSearch(search);
+  };
   const renderItem = ({item}) => (
     <ListItem
       title={item.title}
@@ -31,14 +34,19 @@ const MovieList = ({navigation}) => {
       onPress={() => navigateToDetailMovie(item)}
     />
   );
+
+  let filterData = data.filter((movie) => {
+    return movie.title.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+  });
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
         <View style={styles.container}>
+          <SearchBar search={search} searchValueChange={onchangeValue} />
           <FlatList
-            data={data}
+            data={filterData}
             renderItem={renderItem}
             keyExtractor={keyExtractor}
           />
@@ -50,7 +58,9 @@ const MovieList = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+    marginTop: '5%',
   },
 });
 
