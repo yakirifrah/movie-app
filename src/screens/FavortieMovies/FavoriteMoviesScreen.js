@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import MovieListItem from '../../../src/components/MovieListItem';
 
 const FavoriteMoviesScreen = () => {
+const {container} = styles;
 const {favoriteMovies} = useSelector(state => state.movies);
   const navigation = useNavigation();
 const onListItemPress = movie => {
@@ -23,7 +24,7 @@ return (
         <Text style={{fontSize:20}}>Empty favorite movies</Text>
     </View>
 :
- <View style={styles.container}>
+ <View style={container}>
       <FlatList
         data={favoriteMovies}
         renderItem={renderItem}
@@ -34,7 +35,6 @@ return (
 </>
  )
 }
-
 
 const styles = StyleSheet.create({
   container: {

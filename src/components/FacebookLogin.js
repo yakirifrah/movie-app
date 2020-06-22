@@ -21,7 +21,8 @@ const FacebookLogin = () => {
             ? dispatch(logoutWithFacebook())
             : dispatch(loginWithFacebook())
         }
-        solid>
+        solid
+      >
         <Text style={{color: '#F5FBFF'}}>{buttonText}</Text>
       </Icon.Button>
     </>

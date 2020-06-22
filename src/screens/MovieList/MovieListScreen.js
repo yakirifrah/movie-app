@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {getPopularMovies} from '../../store/actions/movies';
 import {ListItem} from 'react-native-elements';
@@ -10,8 +11,10 @@ const MovieList = ({navigation}) => {
 
   const {data, loading} = useSelector((state) => state.movies);
   useEffect(() => {
-    dispatch(getPopularMovies());
-  }, [dispatch]);
+    if (!data.length) {
+      dispatch(getPopularMovies());
+    }
+  }, [data.length]);
   const keyExtractor = (item, index) => index.toString();
 
   const navigateToDetailMovie = (item) => {
@@ -33,11 +36,13 @@ const MovieList = ({navigation}) => {
       {loading ? (
         <Loader />
       ) : (
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={keyExtractor}
-        />
+        <View style={styles.container}>
+          <FlatList
+            data={data}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+          />
+        </View>
       )}
     </>
   );

@@ -1,31 +1,32 @@
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useRoute} from '@react-navigation/native';
-import config from '../../config';
 import {SharedElement} from 'react-navigation-shared-element';
 import Title from '../../components/Title';
+import config from '../../config';
+
 const FavMovieScreen = () => {
+  const {container, image, titleWrap, text, description, vote} = styles;
   const route = useRoute();
   const {movie} = route.params;
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={container}>
       <SharedElement id={`item.${movie.key}.photo`}>
         <Image
           source={{uri: `${config.API_IMG_URL}${movie.poster_path}`}}
           resizeMode="contain"
-          style={styles.image}
+          style={image}
         />
       </SharedElement>
-
-      <View style={styles.titleWrap}>
+      <View style={titleWrap}>
         <SharedElement id={`item.${movie.key}.title`}>
-          <Text style={styles.text}>{movie.title}</Text>
+          <Text style={text}>{movie.title}</Text>
         </SharedElement>
         <Title msg={'overview'} color={'#2980b9'} size={20} />
       </View>
-      <Text style={styles.description}> {movie.overview}</Text>
-      <Text style={styles.vote}>vote: {movie.vote_average}</Text>
+      <Text style={description}> {movie.overview}</Text>
+      <Text style={vote}>vote: {movie.vote_average}</Text>
     </ScrollView>
   );
 };

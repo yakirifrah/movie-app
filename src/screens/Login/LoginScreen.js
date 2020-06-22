@@ -1,6 +1,7 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 import {View, StyleSheet, Text} from 'react-native';
+import {useSelector} from 'react-redux';
+
 import FacebookLogin from '../../components/FacebookLogin';
 import GoogleLogin from '../../components/GoogleLogin';
 import Title from '../../components/Title';
@@ -9,6 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Loader from '../../components/Loader';
 
 const LoginScreen = ({navigation}) => {
+  const {container, main, footer} = styles;
   const {data, loading} = useSelector((state) => state.auth);
   const msg = data ? `Welcome ${data.name}` : 'Welcome Stranger!';
 
@@ -25,27 +27,43 @@ const LoginScreen = ({navigation}) => {
       <>
         <Icon.Button
           size={20}
+          name={'film'}
           backgroundColor="#3b5998"
           onPress={() => navigation.navigate('TabStack')}
           solid
         >
-          <Text style={{color: '#F5FBFF'}}>List Movies</Text>
+          <Text style={{color: '#F5FBFF', paddingLeft: 20, paddingRight: 20}}>
+            List Movies
+          </Text>
         </Icon.Button>
         <FacebookLogin />
       </>
     );
   };
 
+  const renderSubTitle = () => {
+    if (!data) {
+      return (
+        <>
+          <Text style={{paddingTop: 4, fontSize: 16}}>
+            Please log in to continue{'\n'} to the awesomeness
+          </Text>
+        </>
+      );
+    }
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={container}>
       {loading && <Loader />}
       {!loading && (
         <>
-          <View style={styles.main}>
+          <View style={main}>
             <Title msg={msg} color={'black'} size={20} />
             <ImageUser />
+            {renderSubTitle()}
           </View>
-          <View style={styles.footer}>{renderButton()}</View>
+          <View style={footer}>{renderButton()}</View>
         </>
       )}
     </View>

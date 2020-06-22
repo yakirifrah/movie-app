@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import Api from '../../lib/api';
-import {isEmpty} from '../../lib/helpers';
+import {isEmpty, removeItemByIndex} from '../../lib/helpers';
 const requestPending = () => ({
   type: actionTypes.REQUEST_PENDING,
 });
@@ -38,20 +38,27 @@ export const getPopularMovies = () => {
   };
 };
 
-export const toggleFavoriteMovie = (id, movie) => {
+export const toggleFavoriteMovie = (id) => {
   return (dispatch, getState) => {
     const {data, favoriteMovies} = getState().movies;
-    let isFavorite = movie.hasOwnProperty('favorite') ? !movie.favorite : true;
+    const favItem = data.find((item) => item.id === id);
+    let isFavorite = favItem.hasOwnProperty('favorite')
+      ? !favItem.favorite
+      : true;
     let newFavoriteMovies = [];
     const newData = data.map((obj) =>
       obj.id === id ? {...obj, favorite: isFavorite} : obj,
     );
 
-    const favItem = data.find((item) => item.id === id);
     if (isEmpty(favoriteMovies)) {
       newFavoriteMovies.push(favItem);
     } else {
-      newFavoriteMovies = [...favoriteMovies, favItem];
+      if (favItem.favorite) {
+        let idx = favoriteMovies.findIndex((item) => item.id === id);
+        newFavoriteMovies = removeItemByIndex(favoriteMovies, idx);
+      } else {
+        newFavoriteMovies = [...favoriteMovies, favItem];
+      }
     }
     dispatch(toggleFavorite(newFavoriteMovies, newData));
   };
