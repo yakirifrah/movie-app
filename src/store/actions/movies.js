@@ -30,10 +30,10 @@ export const getPopularMovies = () => {
           dispatch(requestSuccess(response.data.results));
         })
         .catch((error) => {
-          dispatch(requestFailed, JSON.stringify(error));
+          dispatch(requestFailed, 'Error: ' + error);
         });
-    } catch (e) {
-      dispatch(requestFailed, JSON.stringify(e));
+    } catch (error) {
+      dispatch(requestFailed, 'Error: ' + error.message);
     }
   };
 };
