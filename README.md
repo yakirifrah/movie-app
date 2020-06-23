@@ -38,3 +38,5 @@ In the  `ios`  directory
  
  - [ ] Bug fixes and perfomance improvements
  - [ ] Imorove the UX  & UI
+ - [ ] Add Error Boundaries
+
