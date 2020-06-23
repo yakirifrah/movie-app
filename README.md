@@ -1,5 +1,5 @@
 
-# React-native-movie-app # 🚀
+# React-native-movie-app 🚀
 
 *A mobile application built using React Native, Redux, Redux-thunk, React-navigation 5,[react-native-shared-element](https://github.com/IjzerenHein/react-native-shared-element "react-native-shared-element"), react-native-fbsdk, google-signin and used [TMDB](https://www.themoviedb.org/documentation/api "TMDB") Api* 
 
